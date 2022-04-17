@@ -23,7 +23,7 @@ abstract class PostModelBase {
 	 */
 	public function __construct( \WP_Post $post ) {
 		if ( $post->post_type !== static::POST_TYPE ) {
-			throw new \InvalidArgumentException( 'Invalid post type!' );
+			throw new \InvalidArgumentException( 'Invalid post type! Expecting ' . static::POST_TYPE . " but got {$post->post_type}" );
 		}
 		$this->post = $post;
 	}
